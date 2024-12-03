@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+    #btn_edit {
+        color: white;
+        background-color: rgb(233, 200, 9);
+        visibility: hidden;
+    }
+
+    #btn_delete {
+        color: white;
+        background-color: rgb(213, 36, 36);
+        visibility: hidden;
+    }
+
+    input,
+    tr {
+        width: 200px;
+        height: 30px;
+        margin: 3px;
+        padding: 3px;
+    }
+
+    button {
+        width: 60px;
+        height: 30px;
+        margin: 3px;
+        border-style: none;
+    }
+
+    table,
+    h1,
+    form {
+        border-collapse: collapse;
+        width: 800px;
+        margin: 10px auto;
+        table-layout: auto;
+        text-align: center;
+    }
+
+    th,
+    td {
+        text-align: left;
+        padding-left: 5px;
+    }
+
+    .white_font {
+        color: white;
+        background-color: rgb(36, 213, 36);
+    }
+</style>
+
+<body>
+
+    <h1>CRUD Operations</h1>
+    <form>
+        <input type="text" id="ip_name" name="ip_name" placeholder="Enter Name">
+        <input type="text" id="ip_email" name="ip_email" placeholder="Enter Email">
+        <button type="button" onclick="add_opt()" class="white_font">Add</button>
+
+        <table>
+            <tr class="white_font">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td id="num_order"></td>
+                <td id="display_name"></td>
+                <td id="display_email"></td>
+                <td>
+                    <button type="button" onclick="edit_opt()" id="btn_edit">Edit</button>
+                    <button type="button" onclick="delete_opt()" id="btn_delete">Delete</button>
+                </td>
+            </tr>
+        </table>
+
+        <div id="show" style="visibility: hidden;">
+            <input type="text" id="display_name_2">
+            <input type="text" id="display_email_2">
+            <button type="button" onclick="update_otp()" id="btn_update">Update</button>
+            <button type="button" onclick="cancel_opt()" id="btn_cancel">Cancel</button>
+        </div>
+
+        <p id="demo"></p>
+    </form>
+
+    <script>
+        class Emp {
+            constructor(name, email) {
+                this.name = name;
+                this.email = email;
+            }
+            emp_name() {
+                return this.name;
+            }
+            emp_email() {
+                return this.email;
+            }
+        }
+
+        // var ip_name = document.getElementById("ip_name").value;
+        // var ip_email = document.getElementById("ip_email").value;
+        // const emp_info = new Emp(ip_name, ip_email);
+
+        // Add
+        function add_opt() {
+            var ip_name = document.getElementById("ip_name").value;
+            var ip_email = document.getElementById("ip_email").value;
+            const emp_info = new Emp(ip_name, ip_email);
+
+            if (!ip_name || !ip_email) {
+                alert("Please fill the textbox!");
+                return;
+            }
+
+            document.getElementById("display_name").innerHTML = emp_info.emp_name();
+            document.getElementById("display_email").innerHTML = emp_info.emp_email();
+
+            document.getElementById("ip_name").value = "";
+            document.getElementById("ip_email").value = "";
+
+            var e = document.getElementById("btn_edit");
+            var d = document.getElementById("btn_delete");
+            e.style.visibility = "visible";
+            d.style.visibility = "visible";
+
+
+        }
+        // Edit
+        function edit_opt() {
+            var show = document.getElementById("show");
+            show.style.visibility = "visible";
+
+            var edit_name = document.getElementById("display_name").value;
+            var edit_email = document.getElementById("display_email").value;
+            const edit = new Emp(edit_name, edit_email);
+            console.log("bbbbbb", edit)
+
+            document.getElementById("display_name_2").value = edit.emp_name();
+            document.getElementById("display_email_2").value = edit.emp_email();
+            console.log("aaaaaaa", edit.emp_name())
+
+            // document.getElementById("name_edit").innerHTML = emp_info.emp_name();
+            // document.getElementById("email_edit").innerHTML = emp_info.emp_email();
+        }
+    </script>
+
+</body>
+
+</html>
