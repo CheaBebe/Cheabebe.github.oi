@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./bootstrap-5.0.2/dist/css/bootstrap.css" rel="stylesheet">
+
+    <style>
+    
+        img {
+            margin: auto;
+            display: block;
+            height: 30px;
+            width: 30px;
+        }
+
+        #shadow {
+            box-shadow: 1px 5px 8px 3px rgba(52, 58, 64, 0.5);
+            width: 450px;
+            height: 250px;
+        }
+
+        button {
+            width: 120px;
+            margin: 0 auto;
+        }
+
+        .btn_tran {
+            border-color: transparent;
+        }
+
+        label {
+            text-align: center;
+            width: 100%;
+            margin-top: 10px;
+        }
+    </style>
+
+</head>
+
+<body style="background-color: aqua;">
+    <div>
+        <div id="shadow" class="container p-3 m-5 bg-white rounded mx-auto">
+            <h2 class="text-xl-center">Feed Back UI</h2>
+            <div class="row">
+                <div class="col-4 mx-auto">
+                    <button type="button" id="btn1" class="btn btn-outline-success btn_tran">
+                        <img src="https://cdn-icons-png.flaticon.com/512/166/166527.png">Unhappy</button>
+                    <label id="btn_1">0</label>
+                </div>
+                <div class="col-4 mx-auto">
+                    <button type="button" id="btn2" class="btn btn-outline-success btn_tran">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1791/1791385.png">Neutral</button>
+                    <label id="btn_2">0</label>
+                </div>
+                <div class="col-4 mx-auto">
+                    <button type="button" id="btn3" class="btn btn-outline-success btn_tran">
+                        <img src="https://cdn-icons-png.flaticon.com/512/166/166538.png">Satisfied</button>
+                    <label id="btn_3">0</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        let count_1 = 0;
+        let count_2 = 0;
+        let count_3 = 0;
+        document.getElementById("btn1").onclick = function () {
+            count_1 += 1;
+            document.getElementById("btn_1").innerHTML = count_1;
+        }
+        document.getElementById("btn2").onclick = function () {
+            count_2 += 1;
+            document.getElementById("btn_2").innerHTML = count_2;
+        }
+        document.getElementById("btn3").onclick = function () {
+            count_3 += 1;
+            document.getElementById("btn_3").innerHTML = count_3;
+        }
+        
+    </script>
+
+</body>
+
+</html>
