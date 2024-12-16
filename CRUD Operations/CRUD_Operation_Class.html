@@ -59,7 +59,7 @@
         <input type="text" id="ip_email" name="ip_email" placeholder="Enter Email">
         <button type="button" onclick="add_opt()" class="white_font">Add</button>
 
-        <table>
+        <table id="add_row">
             <tr class="white_font">
                 <th>ID</th>
                 <th>Name</th>
@@ -67,7 +67,7 @@
                 <th>Actions</th>
             </tr>
             <tr>
-                <td id="num_order"></td>
+                <td></td>
                 <td id="display_name"></td>
                 <td id="display_email"></td>
                 <td>
@@ -115,6 +115,15 @@
                 alert("Please fill the textbox!");
                 return;
             }
+
+            const table = document.getElementById("add_row");
+            const row = table.insertRow(0);
+            const cell1 = row.insertCell(0);
+            const cell2 = row.insertCell(1);
+            const cell3 = row.insertCell(2);
+            // cell2.innerHTML = ip_name;
+            // cell3.innerHTML = ip_email;
+
 
             document.getElementById("display_name").innerHTML = emp_info.emp_name();
             document.getElementById("display_email").innerHTML = emp_info.emp_email();
